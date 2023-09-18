@@ -207,16 +207,20 @@ void CMfcStartDlg::OnBnClickedBtnBack()
 	{
 		pEdit->GetWindowText(strText);
 
-		int length = strText.GetLength();
+		int length = strText.GetLength(); 
 		if (length > 0) 
 		{
-			strText.Delete(length - 1, 1); // 가장 뒤의 문자를 삭제
+			strText.Delete(0, 1); // int Delete(삭제될 문자 시작 위치, 문자 삭제 수) >> 문자열의 가장 왼쪽 문자를 삭제
+			strText.Delete(length - 1, 1); // 문자열의 가장 오른쪽 문자를 삭제
 			pEdit->SetWindowText(strText); // 수정된 문자열 setWindowText
 		}
 		if (length == 0)
 		{
 			strText = "0";
 			pEdit->SetWindowText(strText); // 수정된 문자열 setWindowText
+			UpdateData(TRUE);
+			m_EditDisplay = "0";
+			UpdateData(false);
 		}
 	}
 }
@@ -331,7 +335,7 @@ void CMfcStartDlg::OnBnClickedBtnMultiply()
 	m_EditExpress = _T(" x ") + m_EditDisplay;
 	m_selectedOP = MULTIPLY;                     //헤더파일 클래스 외부에서 선언된 enum 변수
 	m_nFirstOperand = _ttof(m_EditDisplay);   //m_EditDisplay 문자열을 정수로 변경 (_ttoi) -> 첫번째 연산자에 저장
-	m_EditDisplay = ' ';
+	m_EditDisplay = _T("");
 	UpdateData(FALSE);
 }
 
