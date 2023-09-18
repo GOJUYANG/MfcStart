@@ -18,6 +18,8 @@ private:
 public:
 	CMFCStartCalculator2Dlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
 	void M_Operate(double m_value_two);					// 사칙연산을 위한 추가함수입니다.
+	CFont m_font;
+	LOGFONT logfont;
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME

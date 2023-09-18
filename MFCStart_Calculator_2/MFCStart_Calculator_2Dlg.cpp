@@ -108,6 +108,8 @@ BOOL CMFCStartCalculator2Dlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	m_font.CreatePointFont(150, TEXT("굴림"));
+	GetDlgItem(IDC_EDIT1)->SetFont(&m_font);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -386,7 +388,7 @@ void CMFCStartCalculator2Dlg::OnBnClickedBackspace()
 	CString str;
 	GetDlgItemText(IDC_EDIT1, str);
 	str.Delete(0, 1);
-	SetDlgItemText(IDC_EDIT1, str + '.');
+	SetDlgItemText(IDC_EDIT1, str);
 }
 
 void CMFCStartCalculator2Dlg::OnBnClickedClear()
@@ -401,12 +403,10 @@ void CMFCStartCalculator2Dlg::OnBnClickedClear()
 	m_count = 0;
 
 	CEdit* pEdit = (CEdit*)GetDlgItem(IDC_EDIT1);
-	pEdit->SetWindowTextW(L"");
+	pEdit->SetWindowTextW(L" ");
 
-	CString str;
-	GetDlgItemText(IDC_EDIT2, str);
-	str.Delete(0, str.GetLength());
-	SetDlgItemText(IDC_EDIT2, str + '.');
+	CEdit* pEdit2 = (CEdit*)GetDlgItem(IDC_EDIT2);
+	pEdit2->SetWindowTextW(L" ");
 
 	UpdateData(FALSE);
 }
