@@ -11,7 +11,7 @@ class CMfcStartCImageDlg : public CDialogEx
 // 
 private:
 	CImage m_image;
-
+	BOOL validImgPos(int x, int y);
 
 // 생성입니다.
 public:
@@ -39,4 +39,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedBtnImage();
+	afx_msg void OnBnClickedBtnSave();
+	afx_msg void OnBnClickedBtnLoad();
+	void UpdateDisplay();
+	void moveRect();
+	afx_msg void OnBnClickedBtnAction();
 };
