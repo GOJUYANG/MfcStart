@@ -196,6 +196,7 @@ void CMfcStartCImageDlg::OnBnClickedBtnImage()
 }
 
 CString g_strFileImage = _T("c:\\image\\save.bmp");
+
 void CMfcStartCImageDlg::OnBnClickedBtnSave()
 {
 	m_image.Save(g_strFileImage);
@@ -229,26 +230,30 @@ void CMfcStartCImageDlg::moveRect()
 	int nGray = 80;
 	int nWidth = m_image.GetWidth();
 	int nHeight = m_image.GetHeight();
-	int nPitch = m_image.GetPitch();        
+	int nPitch = m_image.GetPitch();    
+	int nRadius = 10;					// 원의 반지름
+
 	unsigned char* fm = (unsigned char*)m_image.GetBits();
 
-	memset(fm, 0xff, nWidth * nHeight);
-	
-	for (int j = nSttY; j < nSttY+48; j++) {
-		for (int i = nSttX; i < nSttX+64; i++) {
-			if(validImgPos(i, j))
-				fm[j * nPitch + i] = nGray;
-		}
-	}
-	nSttX++;
-	nSttY++;
+	//memset(fm, 0xff, nWidth * nHeight);
+
+	// 이전 원을 지우려면 이전 좌표에 반전 색상(m_image와 동일한 흰색)의 원을 그립니다.
+	drawCircle(fm, nSttX, nSttY, nRadius, 0xff);
+
+	// 새로운 좌표로 원을 그립니다.
+	//nSttX++;
+	//nSttY++;
+	//drawCircle(fm, nSttX, nSttY, nRadius, nGray);
+
+	//또는 전위연산자를 통해 먼저 nSttX 값을 증가시킨 후 drawCircle을 실행한다.
+	drawCircle(fm, ++nSttX, ++nSttY, nRadius, nGray);
+
 	UpdateDisplay();
 }
 
-
 void CMfcStartCImageDlg::OnBnClickedBtnAction()
 {
-	for (int i = 0; i < 640; i++)
+	for (int i = 0; i < 400; i++)
 	{
 		moveRect();
 		Sleep(10);
@@ -265,8 +270,31 @@ BOOL CMfcStartCImageDlg::validImgPos(int x, int y)
 										  // 인수인 X,Y는 CPoint 형태로 넣어주어야한다.
 }
 
-// 프로그램을 만들때 중요한 것은 함수 내에 인수를 숫자로 지정하지 않는것이다.
-// 효율적 프로그래밍
-// 변수는 최소화
-// 함수는 최대화
+void CMfcStartCImageDlg::drawCircle(unsigned char* fm, int x, int y, int nRadius, int nGray)
+{
+	int nCenterX = x + nRadius;
+	int nCenterY = y + nRadius;
+	int nPitch = m_image.GetPitch();
 
+	for (int j = y; j < y + nRadius * 2; j++) {       // nRadius 반지름이므로 원의 총 높이는 nRadius * 2다.
+		for (int i = x; i < x + nRadius * 2; i++) {
+			if (isInCircle(i, j, nCenterX, nCenterY, nRadius))
+				fm[j * nPitch + i] = nGray;
+		}
+	}
+}
+
+BOOL CMfcStartCImageDlg::isInCircle(int i, int j, int nCenterX, int nCenterY, int nRadius)
+{
+	bool bRet = false;
+
+	double dX = i - nCenterX;
+	double dY = j - nCenterY;
+	double dDist = dX * dX + dY * dY;   // 좌표 (i, j)와 원의 중심 좌표 (nCenterX, nCenterY) 간의 거리 (by 피타고라스 정리)
+
+	if (dDist < nRadius * nRadius) {
+		bRet = true;
+	}
+
+	return bRet;
+}
