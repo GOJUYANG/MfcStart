@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MfcStart", "MfcStart\MfcSta
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCStart_Calculator_2", "MFCStart_Calculator_2\MFCStart_Calculator_2.vcxproj", "{E3422419-D594-4DF2-BDA5-BE8823A58D55}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MfcStart_CImage", "MfcStart_CImage\MfcStart_CImage.vcxproj", "{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{E3422419-D594-4DF2-BDA5-BE8823A58D55}.Release|x64.Build.0 = Release|x64
 		{E3422419-D594-4DF2-BDA5-BE8823A58D55}.Release|x86.ActiveCfg = Release|Win32
 		{E3422419-D594-4DF2-BDA5-BE8823A58D55}.Release|x86.Build.0 = Release|Win32
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Debug|x64.ActiveCfg = Debug|x64
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Debug|x64.Build.0 = Debug|x64
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Debug|x86.ActiveCfg = Debug|Win32
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Debug|x86.Build.0 = Debug|Win32
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Release|x64.ActiveCfg = Release|x64
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Release|x64.Build.0 = Release|x64
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Release|x86.ActiveCfg = Release|Win32
+		{3700B5F4-57CE-4DF1-993E-0720EE9ADCA0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
