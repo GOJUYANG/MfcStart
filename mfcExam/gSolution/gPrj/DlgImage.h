@@ -11,8 +11,12 @@ public:
 	CDlgImage(CWnd* pParent = NULL);   // 표준 생성자입니다.
 	virtual ~CDlgImage();
 
+	//CDlgImage의 멤버변수
 	CImage m_Image;
 	CWnd* m_pParent;
+	int m_nDataCount = 0;
+	CPoint m_ptData[100];
+
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
@@ -23,6 +27,10 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+
+private:
+	void drawData(CDC *pDC);
+
 public:
 	afx_msg void OnBnClickedBtnUpParent();
 	virtual BOOL OnInitDialog();

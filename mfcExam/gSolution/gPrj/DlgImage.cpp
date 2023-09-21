@@ -59,12 +59,14 @@ BOOL CDlgImage::OnInitDialog()
 
 void CDlgImage::OnPaint()
 {
-	CPaintDC dc(this); // device context for painting
-	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+	CPaintDC dc(this);	// device context for painting
+						// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+						// 그리기 메시지에 대해서는 CDialogEx::OnPaint()을(를) 호출하지 마십시오.
 	if (m_Image) {
 		m_Image.Draw(dc, 0, 0);
 	}
-	// 그리기 메시지에 대해서는 CDialogEx::OnPaint()을(를) 호출하지 마십시오.
+	
+	drawData(&dc);
 }
 
 void CDlgImage::InitImage()
@@ -86,4 +88,20 @@ void CDlgImage::InitImage()
 	unsigned char* fm = (unsigned char*)m_Image.GetBits();
 
 	memset(fm, 0xff, nWidth * nHeight);
+}
+
+void CDlgImage::drawData(CDC *pDC)
+{
+	CRect rect;
+
+	CPen pen;											// 색상을 변경하기 위한 CPen 객체 생성
+	pen.CreatePen(PS_SOLID, 5, RGB(0xff, 0, 0));		
+	CPen* pOldPen = pDC->SelectObject(&pen);			// 기존의 펜의 정보를 저장함
+
+	for (int i = 0; i < m_nDataCount; i++) {
+		rect.SetRect(m_ptData[i], m_ptData[i]);
+		rect.InflateRect(2,2);							//사각형으로 그려진 rect 크기 조정 (너비, 높이) 
+		pDC->Ellipse(rect);
+	}
+	pDC->SelectObject(pOldPen);							// 저장했던 펜의 정보를 가져옴
 }
