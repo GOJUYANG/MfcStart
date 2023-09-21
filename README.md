@@ -5,17 +5,18 @@
 
 ## 과제 수행 목록
 
-* 깃 튜토리얼
-  * 깃 Clone
-  * 깃 Pull
-  * 깃 Commit
-    * 깃 Commit 1)
-    * 
-- 첫번째 과제 : 계산기 제작
-  - 참고 폴더 MFCStart_Calculator_2
-- [aimeos/aimeos-typo3](https://github.com/aimeos/aimeos-typo3#readme) - Project logo. Clear description of what the project does. Demo screenshot. TOC for easy navigation. Easy installation and setup sections with screenshots. Links for further reading.
-- [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide#readme) - Badges, project GIF, concise description, quick links, stepwise installation instructions.
-- [alichtman/shallow-backup](https://github.com/alichtman/shallow-backup#readme) - Clear description of what the project does. GIF Demo. TOC for easy navigation. Badges. Links for further reading. Simple install instructions.
+* 첫번째 과제 : 계산기 제작
+  * 참고 폴더 MFCStart_Calculator_2
+  * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MFCStart_Calculator_2)
+
+* 두번째 과제 : 원 이미지 움직이기
+  * 참고 폴더 MfcStart_CImage
+  * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MfcStart_CImage)
+ 
+* 세번째 과제 : 종합 응용 
+  * 참고 폴더 MFCStart_
+  * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MFCStart_)
+
 
 ## 과제 수행 개인 기록
 
