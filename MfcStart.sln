@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MfcStart_CImage", "MfcStart
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MfcStart_BitmapBtn", "MfcStart_BitmapBtn\MfcStart_BitmapBtn.vcxproj", "{4A7FE681-B9F5-4216-9254-69AE945C9260}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MfcStart_Dlg", "MfcStart_Dlg\MfcStart_Dlg.vcxproj", "{D5485894-B6B9-44B4-AE78-8A6569682F62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{4A7FE681-B9F5-4216-9254-69AE945C9260}.Release|x64.Build.0 = Release|x64
 		{4A7FE681-B9F5-4216-9254-69AE945C9260}.Release|x86.ActiveCfg = Release|Win32
 		{4A7FE681-B9F5-4216-9254-69AE945C9260}.Release|x86.Build.0 = Release|Win32
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Debug|x64.ActiveCfg = Debug|x64
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Debug|x64.Build.0 = Debug|x64
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Debug|x86.ActiveCfg = Debug|Win32
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Debug|x86.Build.0 = Debug|Win32
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Release|x64.ActiveCfg = Release|x64
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Release|x64.Build.0 = Release|x64
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Release|x86.ActiveCfg = Release|Win32
+		{D5485894-B6B9-44B4-AE78-8A6569682F62}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
