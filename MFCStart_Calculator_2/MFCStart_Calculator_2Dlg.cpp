@@ -220,8 +220,8 @@ void CMFCStartCalculator2Dlg::OnBnClickedPlus()
 	SetDlgItemText(IDC_EDIT2, str + str2 + '+');
 
 	omg.Format(L"%f", m_value);
-	omg.TrimRight(L"0");
-	omg.TrimRight(L".");
+	omg.TrimRight(L"0");             // 0이 사라질때까지 오른쪽 방향으로 가면서 지운다.
+	omg.TrimRight(L".");             // .이 사라질때까지 오른쪽 방향으로 가면서 지운다. 소수점 이하 0 삭제
 	SetDlgItemText(IDC_EDIT1, omg);
 }
 
@@ -253,8 +253,8 @@ void CMFCStartCalculator2Dlg::OnBnClickedMinus()
 	SetDlgItemText(IDC_EDIT2, str + str2 + '-');
 
 	omg.Format(L"%f", m_value);
-	omg.TrimRight(L"0");
-	omg.TrimRight(L".");
+	omg.TrimRight(L"0");             // 0이 사라질때까지 오른쪽 방향으로 가면서 지운다.
+	omg.TrimRight(L".");             // .이 사라질때까지 오른쪽 방향으로 가면서 지운다. 소수점 이하 0 삭제
 	SetDlgItemText(IDC_EDIT1, omg);
 }
 
@@ -286,8 +286,8 @@ void CMFCStartCalculator2Dlg::OnBnClickedMultyply()
 	SetDlgItemText(IDC_EDIT2, str + str2 + "x");
 
 	omg.Format(L"%f", m_value);
-	omg.TrimRight(L"0");
-	omg.TrimRight(L".");
+	omg.TrimRight(L"0");             // 0이 사라질때까지 오른쪽 방향으로 가면서 지운다.
+	omg.TrimRight(L".");             // .이 사라질때까지 오른쪽 방향으로 가면서 지운다. 소수점 이하 0 삭제
 	SetDlgItemText(IDC_EDIT1, omg);
 }
 
