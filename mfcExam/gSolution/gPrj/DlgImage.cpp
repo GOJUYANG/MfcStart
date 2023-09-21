@@ -95,7 +95,7 @@ void CDlgImage::drawData(CDC *pDC)
 	CRect rect;
 
 	CPen pen;											// 색상을 변경하기 위한 CPen 객체 생성
-	pen.CreatePen(PS_SOLID, 5, RGB(0xff, 0, 0));		
+	pen.CreatePen(PS_SOLID, 5, COLOR_GREEN);		
 	CPen* pOldPen = pDC->SelectObject(&pen);			// 기존의 펜의 정보를 저장함
 
 	for (int i = 0; i < m_nDataCount; i++) {
