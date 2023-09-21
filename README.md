@@ -24,7 +24,7 @@
 [velog]
 - https://velog.io/@juyang/series/c
 <p align="center">
-  <img src=![list](https://github.com/GOJUYANG/MfcStart/assets/133473562/8f766ec9-6a02-47db-b683-b6f325acd343)>
+  <img src="https://github.com/GOJUYANG/MfcStart/assets/133473562/8f766ec9-6a02-47db-b683-b6f325acd343">
 </p>
 
 
