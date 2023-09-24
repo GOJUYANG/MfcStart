@@ -14,8 +14,8 @@
   * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MfcStart_CImage)
  
 * 세번째 과제 : 종합 응용 
-  * 참고 폴더 MFCStart_
-  * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MFCStart_)
+  * 참고 폴더 MFCStart_Main
+  * [링크] (https://github.com/GOJUYANG/MfcStart/tree/master/MfcStart_Main)
 
 
 ## 과제 수행 개인 기록
