@@ -1,7 +1,7 @@
 ﻿
 // MfcStart_MainDlg.h: 헤더 파일
 //
-
+#include "Dlglmage.h"
 #pragma once
 
 
@@ -11,6 +11,8 @@ class CMfcStartMainDlg : public CDialogEx
 // 생성입니다.
 public:
 	CMfcStartMainDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
+
+	CDlglmage *m_pDlgImage;
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
@@ -34,4 +36,5 @@ protected:
 public:
 	afx_msg void OnBnClickedBtnCreate();
 	CEdit m_Edit;
+	afx_msg void OnDestroy();
 };

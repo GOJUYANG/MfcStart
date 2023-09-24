@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dlglmage.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MfcStart_Main.h" />
     <ClInclude Include="MfcStart_MainDlg.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dlglmage.cpp" />
     <ClCompile Include="MfcStart_Main.cpp" />
     <ClCompile Include="MfcStart_MainDlg.cpp" />
     <ClCompile Include="pch.cpp">

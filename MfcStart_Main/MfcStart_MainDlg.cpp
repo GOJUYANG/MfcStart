@@ -69,6 +69,7 @@ BEGIN_MESSAGE_MAP(CMfcStartMainDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_CREATE, &CMfcStartMainDlg::OnBnClickedBtnCreate)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -104,6 +105,10 @@ BOOL CMfcStartMainDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	MoveWindow(0, 0, 640, 580);
+	m_pDlgImage = new CDlglmage;
+	m_pDlgImage->Create(IDD_CDlglmage, this);
+	m_pDlgImage->ShowWindow(SW_SHOW);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -157,14 +162,8 @@ HCURSOR CMfcStartMainDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-#define COLOR_YELLO RGB(255,255,0)
-#define COLOR_BLACK RGB(0,0,0)
 void CMfcStartMainDlg::OnBnClickedBtnCreate()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CClientDC dc(this);
-
 
 	// 라인에딧 값 가져오기 = 원의 반지름 가져오기
 	CString mText;
@@ -172,45 +171,29 @@ void CMfcStartMainDlg::OnBnClickedBtnCreate()
 	int r = _wtoi(mText.GetBuffer()); // 반지름
 	mText.ReleaseBuffer();
 
-	cout << r << endl; // 출력 확인용
-
 	// 다이얼로그의 클라이언트 영역의 크기와 위치를 얻기
-	CRect rect;
-	GetClientRect(&rect);
+	CRect dlgRect;
+	GetClientRect(&dlgRect);
 
-	// 원의 중심을 다이얼로그의 중앙으로 설정
-	int centerX = rand() % rect.Width();
-	int centerY = rand() % rect.Height();
+	// 원의 중심을 랜덤하게 설정
+	int centerX = rand() % dlgRect.Width();
+	int centerY = rand() % dlgRect.Height();
+
 	int radius = r;
 
-	// 화면 칠하기
-	dc.FillSolidRect(&rect, RGB(255, 255, 255));
-
-	// 테두리 두께를 설정
-	int penWidth = 5;
-
-	// 검은 원 그리기
-	CPen blackPen(PS_SOLID, penWidth, RGB(0, 0, 0)); // 검은색 펜
-	CPen* OldPen = dc.SelectObject(&blackPen);
-	CBrush blackBrush(RGB(0, 0, 0));
-	CBrush* oldBrush = dc.SelectObject(&blackBrush);
-	dc.Ellipse(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-	dc.SelectObject(oldBrush);
-	dc.SelectObject(OldPen); // 검은색 펜으로 돌아갑니다.
-
-	// 노란색 테두리 그리기
-	CPen yellowPen(PS_SOLID, penWidth, COLOR_YELLO);
-	dc.SelectObject(&yellowPen);
-	dc.Ellipse(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-
-	// 검은색 십자 마크 그리기
-	int crossSize = 10; // 십자 마크의 크기
-
-	// 검은색 펜으로 변경
-	CPen blackPen2(PS_SOLID, penWidth, RGB(0, 0, 0));
-	dc.SelectObject(&blackPen2);
-	dc.MoveTo(centerX - crossSize, centerY);
-	dc.LineTo(centerX + crossSize, centerY);
-	dc.MoveTo(centerX, centerY - crossSize);
-	dc.LineTo(centerX, centerY + crossSize);
+	// DlgImage에 원 그리기
+	if (m_pDlgImage)
+	{
+		m_pDlgImage->DrawCircle(centerX, centerY, r);
+	}
 }
+
+
+void CMfcStartMainDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	delete m_pDlgImage;
+}
+
+
